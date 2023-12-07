@@ -1,0 +1,77 @@
+{% extends 'gamepedia/layout.html' %}
+{% load static %}
+{% block title %}{{ game.title }}{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'gamepedia/game.css' %}">
+<script src="{% static 'gamepedia/game.js' %}"></script>
+<input type="hidden" value="{{ game.id }}" id="game_id">
+<div class="content">
+    <div class="infocontainer">
+        <div class="gametitle">{{ game.title }}:</div>
+        <div class="imgcontainer"><img src="{{ game.poster}}" alt="{{ game.title }} cover"></div>
+        <div class="gamedescription">{{ game.description }}</div>
+        <div class="gamegenres"><strong>Genres:</strong> {% for genre in genres %} <span><a href="/genres/{{ genre }}">{{ genre }},&nbsp</a></span>{% endfor %}</div>
+        <div class="gamedev"><strong>Developer:</strong> <a href="/dev/{{game.developer.id}}">{{ game.developer.developer }}</a></div>
+        <div class="gamepub"><strong>Publisher:</strong> {{ game.publisher.publisher }}</div>
+        <div class="ratingandwl">{% if user.is_authenticated %}<div class="wl" data-add="{{ is_paylist }}" onclick="playlistchange()">+</div>{% endif %}<div class="rating">{%if avg_rating|floatformat:1 != "-1.0" %}{{ avg_rating|floatformat:1 }} {% else %} NA{% endif %}</div></div>
+    </div>
+    {% if user.is_authenticated %}
+        {% if reviewd %}
+            <div class="user_review">
+                <h3>Your review:</h3>
+                <div class="userreviewtext">{{ userreview.review }}</div>
+                {% if userreview.rating == 10 %}
+                <div class="userreviewrating">10</div>
+                {% else %}
+                <div class="userreviewrating">{{ userreview.rating|floatformat:1}}</div>
+                {% endif %}
+                <button class="changereview" onclick="changereviewview()">Change your Review</button>
+            </div>
+            <div class="review_form" style="display: none;">
+                <h3>Leave a Review:</h3>
+                <tr>
+            <th><label for="id_rating">Rating:</label></th><td>
+            <input type="number" name="rating" class="rating_input" min="0" max="10" required id="id_rating"></td>
+            </tr>
+            <tr>
+            <th><label for="id_review">Review:</label></th><td>
+            <textarea name="review" cols="40" rows="10" class="rating_review" maxlength="4096" id="id_review"></textarea>
+            </td>
+            </tr>
+            <button class="submitbauuton" onclick="changereview()" style="width: 200px;">change review</button>
+            </div>
+        {% else %}
+        <div class="review_form">
+            <h3>Leave a Review:</h3>
+            <tr>
+            <th><label for="id_rating">Rating:</label></th><td>
+            <input type="number" name="rating" class="rating_input" min="0" max="10" required id="id_rating"></td>
+            </tr>
+            <tr>
+            <th><label for="id_review">Review:</label></th><td>
+            <textarea name="review" cols="40" rows="10" class="rating_review" maxlength="4096" id="id_review"></textarea>
+            </td>
+            </tr>
+            <form action=""><button class="submitbauuton" onclick="postreview()">Submit</button></form>
+            </div>
+        {% endif %}
+    {% endif %}
+    <div class="allreviews" style="height: 100px;">
+        <hr style="background-color: white;">
+        <h2>Users Reviews:</h2>
+        {% for review in reviews %}
+            <div class="user_review" style="min-height: 100px;">
+                <h3>{{ review.reviewer.username }}</h3>
+                <div class="userreviewtext">{{ review.review }}</div>
+                {% if review.rating == 10 %}
+                <div class="userreviewrating">10</div>
+                {% else %}
+                <div class="userreviewrating">{{ review.rating|floatformat:1}}</div>
+                {% endif %}
+            </div>
+        {% empty %}
+        <h4>No Reviews yet</h4>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'gamepedia/layout.html' %}
+{% load static %}
+{% block title %}GamePedia{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'gamepedia/index.css' %}">
+<script src="{% static 'gamepedia/dev.js' %}"></script>
+<input type="hidden" id="max_page" value="{{ max_page }}">
+<hr>
+<input type="hidden" value="{{ dev.id }}" id="developer_id">
+<h2 style="color: #e5e4e2; padding-left: 20px;">{{ dev.developer }}:</h2>
+<div class="games">
+
+</div>
+{% endblock %}

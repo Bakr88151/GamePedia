@@ -1,0 +1,20 @@
+{% extends 'gamepedia/layout.html' %}
+{% load static %}
+{% block title %}{{ game.title }}{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'gamepedia/game.css' %}">
+<script src="{% static 'gamepedia/unverifiedgame.js' %}"></script>
+<input type="hidden" value="{{ game.id }}" id="game_id">
+
+<div class="content">
+    <div class="infocontainer">
+        <div class="gametitle">{{ game.title }}:</div>
+        <div class="imgcontainer"><img src="{{ game.poster}}" alt="{{ game.title }} cover"></div>
+        <div class="gamedescription">{{ game.description }}</div>
+        <div class="gamegenres"><strong>Genres:</strong> {% for genre in genres %} <span><a href="/genres/{{ genre }}">{{ genre }},&nbsp</a></span>{% endfor %}</div>
+        <div class="gamedev"><strong>Developer:</strong> <a href="/dev/{{game.developer.id}}">{{ game.developer.developer }}</a></div>
+        <div class="gamepub"><strong>Publisher:</strong> {{ game.publisher.publisher }}</div>
+        <div class="ratingandwl"><div class="btn btn-primary" onclick="verifygame()">Verify</div><div class='btn btn-danger' onclick="deletegame()">Delete</div></div>
+    </div>
+</div>
+{% endblock %}

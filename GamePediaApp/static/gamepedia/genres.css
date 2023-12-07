@@ -1,0 +1,32 @@
+.genres{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.genre{
+    display:table-cell;
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border: 1px #e5e4e2 solid;
+    background-color: rgb(71, 191, 231);
+    color: #e5e4e2;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 24px;
+    padding: auto;
+
+}
+.genre:hover{
+    border: #e5e4e2 1px solid;
+    background-color: #383C44;
+    transform: scale(110%);
+}
+.genres a:hover{
+    text-decoration: none;
+}

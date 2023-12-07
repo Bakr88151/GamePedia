@@ -1,0 +1,22 @@
+{% extends 'gamepedia/layout.html' %}
+{% load static %}
+{% block title %}GamePedia{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'gamepedia/index.css' %}">
+<input type="hidden" id="max_page" value="{{ max_page }}">
+<script src="{% static 'gamepedia/index.js' %}"></script>
+<div class="mysearch">
+  <div class="input-and-result">
+    <form action="#">
+      <input type="search" class="search-bar" placeholder="Search" autocomplete="off">
+      <button type="submit" class="mysearch_button">&#x1F50E</button>
+    </form>
+    <div>
+      <ul class="qiucksearch_results" style="display: none;"></ul>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="games">
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'gamepedia/layout.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <link href="{% static 'gamepedia/login.css' %}" rel="stylesheet">
+    <script src="{% static 'gamepedia/login.js' %}"></script>
+
+    <div class="bodycontainer"> 
+        <div class="mycontainer" id="login">
+            <h3>Login</h3>
+            <form action="/login" method="post">
+                <input id="username" placeholder="username" name="username" autocomplete="off" autofocus class="username" required>
+                <input type="password" id="password" name="Password" placeholder="Password" class="password" required>
+                <h5>{{ message_login }}</h5>
+                <div class="alternavie">Don't an Account? <span onclick="showcreate()">Create One</span></div>
+                <input type="submit" class="login-button" value="Login">
+            </form>
+        </div>
+        <div class="mycontainer" id="create">
+            <h3>Create Account</h3>
+            <form action="/register" method="post">
+                <input id="createusername" placeholder="username" name="createusername" autocomplete="off" class="username" required>
+                <input type="password" placeholder="Password" name="createpassword" id="createpassword" class="password" required>
+                <input type="password" placeholder="confirm Password" name="passwordconfirm" id="passwordconfirm" class="passwordconfirm" required>
+                <h5>{{ message_register }}</h5>
+                <div class="alternavie">You have an Account? <span onclick="showlogin()">login</span></div>
+                <input type="submit" class="login-button" value="Create Account">
+            </form>
+        </div>
+    </div>
+{% endblock %}

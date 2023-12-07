@@ -1,0 +1,12 @@
+{% extends 'gamepedia/layout.html' %}
+{% load static %}
+{% block title %}Genres{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'gamepedia/genres.css' %}">
+<hr>
+<div class="genres">
+    {% for genre in genres %}
+    <a href="genres/{{ genre }}"><div class="genre">{{ genre }}</div></a>
+    {% endfor %}
+</div>
+{% endblock %}

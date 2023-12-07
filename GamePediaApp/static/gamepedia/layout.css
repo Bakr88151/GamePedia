@@ -1,0 +1,43 @@
+dialog{
+    width: 350px;
+    height: 125px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: large;
+    background-color: #383C44;
+    color: white;
+}
+dialog ::backdrop{
+    background-color: #000000;
+}
+[data-close-modal]{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 10px;
+}
+[data-logout]{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+background: #383C44;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: #FFD700;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #a08800;
+}

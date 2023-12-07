@@ -1,0 +1,126 @@
+.bodycontainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mycontainer{
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    min-width: 250px;
+    max-width: 450px;
+    height: 500px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.226);
+    color: white;
+    border: #FFD700 1px solid;
+}
+form{
+    display: grid;
+    grid-template-columns: 1FR;
+    grid-template-rows: repeat(4, 25%);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 90%;
+    width: 90%;
+}
+input{
+    color: #e5e4e2;
+    background-color: transparent;
+    border: 1px solid #e5e4e2;
+    border-radius: 5px;
+    width: 90%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+input:focus{
+    outline: 0;
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+}
+input::placeholder{
+    color: #f8d92a6c;
+}
+
+.username{
+    grid-row: 1/2;
+    grid-column: 1/2;
+    align-self: last baseline;
+    justify-self: center;
+}
+.password{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    align-self: center;
+    justify-self: center;
+}
+.passwordconfirm{
+    grid-row: 3/4;
+    grid-column: 1/2;
+    align-self: first baseline;
+    justify-self: center;
+}
+.login-button{
+    color: rgb(71, 191, 231);
+    position: absolute;
+    grid-row: 4/5;
+    grid-column: 1/2;
+    align-self: last baseline;
+    justify-self: center;
+    width: 90%;
+    height: 50px;
+    margin-bottom: 5px;
+    background-color: #e5e4e2;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px;
+    font-family: serif;
+    border: 1px solid rgb(71, 191, 231);
+    transition: all 0.5s;
+}
+.login-button:hover{
+    border: 1px solid #e5e4e2;
+    background-color: rgb(71, 191, 231);
+    color: white;
+}
+form{
+    position: relative;
+    width: 100%;
+}
+.alternavie{
+    grid-row: 4/5;
+    grid-column: 1/2;
+    padding-top: 20px;
+    align-self: first baseline;
+    justify-self: center;
+}
+span{
+    color: rgb(71, 191, 231);
+}
+span:hover{
+    color: rgb(30, 122, 153);
+    text-decoration: underline;
+    cursor: pointer;
+}
+h3{
+    font-family: serif;
+}
+h5{
+    color: red;
+    grid-row: 3/4;
+    grid-column: 1/2;
+    align-self: last baseline;
+    padding-bottom: 20px;
+    justify-self: center;
+}

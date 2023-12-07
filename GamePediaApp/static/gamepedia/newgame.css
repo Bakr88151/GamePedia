@@ -1,0 +1,101 @@
+body{
+    color: white;
+}
+.date{
+    min-width: 100px;
+    margin: 5px;
+    border: 0px;
+    border-radius: 3px;
+    padding: 3px;
+    
+}
+#release_date_year::after{
+    content: "\n";
+    white-space:pre-line;
+}
+label{
+    width: 100%;
+}
+textarea{
+    max-height: 150px;
+}
+#submit{
+    margin-top: 15px;
+    padding: 10px;
+}
+@media (max-width:999px){
+    .form_container{
+        position: relative;
+        max-width: 400px;
+        padding: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: rgba(128, 128, 128, 0.226);
+        border-radius: 5px;
+        border: #FFD700 1px solid;
+        margin-top: 20px;
+    }
+}
+@media (min-width: 1000px){
+    .form_container{
+        position: relative;
+        max-width: 1000px;
+        padding: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: rgba(128, 128, 128, 0.226);
+        border-radius: 5px;
+        border: #FFD700 1px solid;
+        margin-top: 20px;
+    }
+}
+.mysuperform{
+    background-color: transparent;
+    color: #e5e4e2;
+    border: 1px solid #e5e4e2;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+}
+.mysuperform:focus{
+    background-color: transparent;
+    color: #e5e4e2;
+    outline: 0;
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    filter: brightness(2);
+}
+.mysuperformselect{
+    height: 200px;
+    background-color: transparent;
+    color: #e5e4e2;
+    border: 1px solid #e5e4e2;
+    width: 100%;
+    border-radius: 5px;
+}
+.searchbar_container{
+    width: 100%;
+    border: 1px solid #e5e4e2;
+    border-radius: 5px;
+}
+.searchbar_container ul{
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    list-style-type: none;
+}
+.searchbar_container input{
+    border: 0;
+}
+.searchbar_container input:focus{
+    border: 0;
+}
+.searchresult{
+    cursor: pointer;
+}
+.searchresult:hover{
+    background-color: #81807ffa;
+}
+.searchbar_container:focus-within{
+    border: #FFD700 1px solid;
+}
